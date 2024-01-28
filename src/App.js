@@ -1,24 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import Score from './Components.js/Score';
+import Solution from './Components.js/Solution';
+import Letters from './Components.js/Letters';
 
 function App() {
+  const [score,setScore] = useState(100)
+  const [solution, setSolution] = useState("What you do when calm")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Score Score={score} />
+    <Solution hint={solution} word={"Girl"}/>
+    <div>Available Letters:</div>
+    <Letters/>  
+    </>
   );
 }
 
