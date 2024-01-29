@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Letter({letter}) {
+export default function Letter({letter, active, pickLetter}) {
   return (
-    <span>
-    {letter}  
-    </span>
+    <>
+    <span onClick={()=>pickLetter(letter)} className={active ? "picked": ""}  >{letter}</span>    
+    </>
   )
 }

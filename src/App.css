@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.picked{
+  text-decoration: line-through;
+}
+
+.high{
+  color: green;
+}
+
+.mid{
+  color: orange;
+}
+
+.low{
+  color: red;
+}

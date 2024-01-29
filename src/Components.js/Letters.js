@@ -1,10 +1,8 @@
 import React from 'react'
 import Letter from './Letter'
 
-export default function Letters () {
-    const alphabet = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase()
-    const letters= [...alphabet]
+export default function Letters ({letters, pickLetter}) {
   return (
-    <div>{letters.map(l=><Letter letter={l}></Letter>)}</div>
+    <div>{ Object.keys(letters).map((l,i)=><Letter key={i} letter={l} pickLetter={pickLetter} active={letters[l]}></Letter>)}</div>
   )
 }
