@@ -5,11 +5,11 @@ export default function Solution({word,hint, chosenLetters}) {
     const letters =  [...word]
   return (
     <div>
-        <div>
-            {letters.map((l,i)=><Letter key={i} letter={chosenLetters[l]? l+" ":"_ "}/>)}
+        <div className='word-display'>
+            {letters.map((l,i)=><Letter letterClass='letter' key={i} letter={chosenLetters[l]? l+" ":""}/>)}
         </div>
-    <div>
-        <em>{hint}</em>
+    <div className="hint-text">
+       <b>Hint: </b> <em>{hint}</em>
     </div>
 
     </div>
