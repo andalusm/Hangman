@@ -6,6 +6,13 @@ import Solution from './Components/Solution';
 import Letters from './Components/Letters';
 import EndGame from './Components/EndGame';
 import Hangman from './Components/Hangman';
+import hangman0 from './images/hangman-0.svg';
+import hangman1 from './images/hangman-1.svg';
+import hangman2 from './images/hangman-2.svg';
+import hangman3 from './images/hangman-3.svg';
+import hangman4 from './images/hangman-4.svg';
+import hangman5 from './images/hangman-5.svg';
+import hangman6 from './images/hangman-6.svg';
 
 function App() {
   const [ended, setEnded] = useState(false)
@@ -305,24 +312,23 @@ function App() {
     generateWord()
     setLetters(generateLetterStatuses())
     setScore(100) 
-    const startImg = require(`./images/hangman-${0}.svg`)
-    setHangman(startImg.default || startImg)  
+    setHangman(hangman0)  
   }
-  const getHangmanImg= ()=>{
+  const getHangmanImg= (score)=>{
     if (score >= 90 ) {
-      return 0;
+      return hangman0;
     } else if (score >= 80 && score < 90) {
-      return 1;
+      return hangman1;
     } else if (score >= 70 && score < 80) {
-      return 2;
+      return hangman2;
     } else if (score >= 60 && score < 70) {
-      return 3;
+      return hangman3;
     } else if (score >= 30 && score < 60) {
-      return 4;
+      return hangman4;
     } else if (score >= 10 && score < 30) {
-      return 5;
+      return hangman5;
     } else 
-      return 6;
+      return hangman6;
   }
   const checkLetter = function (letter) {
     if (!letters[letter]) {
@@ -336,8 +342,8 @@ function App() {
       else {
         newScore = score - 20
       }
-      const hangmanImg = getHangmanImg()
-      setHangman(require(`./images/hangman-${hangmanImg}.svg`))
+      const hangmanImg = getHangmanImg(newScore)
+      setHangman(hangmanImg)
       setScore(newScore)
       if(checkWordFound(newLetters)){
         setEnded(true)
@@ -351,13 +357,12 @@ function App() {
 
 
   }
-  const startImg = require(`./images/hangman-${0}.svg`)
-  const [hangman, setHangman] = useState(startImg.default || startImg)
+  const [hangman, setHangman] = useState(hangman0)
   console.log(hangman)
   return (
     <>{!ended ?
       <div className="container">
-         <div class="hangman-box">
+         <div className="hangman-box">
             <Hangman hangman={hangman}></Hangman>
             <h1>Hangman Game Score:  <Score score={score} /> </h1>
         </div>
